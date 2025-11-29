@@ -1,0 +1,23 @@
+<?php
+// Template de configuration - À DUPLIQUER en db.php
+// NE PAS commiter db.php avec vos vrais identifiants !
+
+$DB_HOST = getenv('DB_HOST') ?: 'localhost'; // ou votre host AlwaysData
+$DB_PORT = getenv('DB_PORT') ?: '5432';
+$DB_NAME = getenv('DB_NAME') ?: 'nom_de_votre_base';
+$DB_USER = getenv('DB_USER') ?: 'votre_utilisateur';
+$DB_PASS = getenv('DB_PASS') ?: 'votre_mot_de_passe';
+
+$pdo = null;
+$db_error = null;
+
+try {
+    $dsn = "pgsql:host={$DB_HOST};port={$DB_PORT};dbname={$DB_NAME};sslmode=prefer";
+    $pdo = new PDO($dsn, $DB_USER, $DB_PASS, [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]);
+} catch (PDOException $e) {
+    $db_error = $e->getMessage();
+    // pas de die(); on laisse les pages fonctionner en fallback
+}

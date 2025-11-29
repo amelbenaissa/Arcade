@@ -1,0 +1,28 @@
+# Fichiers de configuration sensibles
+.env
+public/config/db.php
+
+# Logs
+public/logs/*.log
+public/logs/*.txt
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dépendances (si vous utilisez Composer plus tard)
+vendor/
+composer.lock
+
+# Fichiers temporaires
+*.tmp
+*.bak
+*.cache

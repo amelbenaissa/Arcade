@@ -1,0 +1,3 @@
+# Optionnel (Apache): rediriger /admin vers /public/admin
+# Si tu mets le dossier "public" en DocumentRoot, tu n'as pas besoin de règles.
+# Sinon, ignore ce fichier.
